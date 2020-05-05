@@ -9,7 +9,7 @@ import {
   Modal,
 } from "react-native";
 
-export const InfoPage = () => {
+export const InfoScreen = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
