@@ -9,7 +9,7 @@ import {
   Modal,
 } from "react-native";
 
-export const InfoScreen = () => {
+const InfoScreen = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
@@ -69,6 +69,8 @@ export const InfoScreen = () => {
     </View>
   );
 };
+
+export default InfoScreen;
 
 const styles = StyleSheet.create({
   container: {
