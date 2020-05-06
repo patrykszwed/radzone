@@ -1,17 +1,19 @@
 import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 
+const details = [
+  { key: "App version", value: "1.0" },
+  { key: "Created by", value: "Groupd D" },
+  { key: "Data provider", value: "Safecast" },
+];
+
 const InfoScreen = () => {
   const { container, infoTableHeader, infoTableItem } = styles;
   return (
     <View>
       <Text style={infoTableHeader}>APPLICATION DETAILS</Text>
       <FlatList
-        data={[
-          { key: "App version", value: "1.0" },
-          { key: "Created by", value: "Groupd D" },
-          { key: "Data provider", value: "Safecast" },
-        ]}
+        data={details}
         renderItem={({ item }) => (
           <View style={container}>
             <Text style={infoTableItem}>{item.key}</Text>
