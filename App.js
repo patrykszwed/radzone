@@ -14,7 +14,7 @@ const Stack = createStackNavigator();
 const App = () => {
 
   navigateToInfoScreen = () => {
-    NavigationService.navigate('Informations')
+    NavigationService.navigate('Information')
   }
 
   return (
@@ -30,7 +30,7 @@ const App = () => {
             />
           )}}
         />
-        <Stack.Screen name="Informations" component={InfoScreen} />
+        <Stack.Screen name="Information" component={InfoScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
