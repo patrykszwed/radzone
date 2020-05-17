@@ -50,7 +50,10 @@ class MainScreen extends Component {
 
   calculatePercentage = () => {
     const { radiationValue, unit } = this.state;
-    const sievertValue = this.convertValue(unit, USV, radiationValue);
+    let sievertValue = radiationValue;
+    if (unit !== USV) {
+      sievertValue = this.convertValue(unit, USV, radiationValue);
+    }
     const percentage = ((sievertValue * HOURS_IN_YEAR) / FATAL_RADIATION_POISONING_VALUE) * 100;
     return percentage;
   }
