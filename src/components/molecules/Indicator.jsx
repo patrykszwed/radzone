@@ -1,20 +1,20 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, MaterialIcons } from '@expo/vector-icons';
 import colorBetween from 'color-between';
 
 const TINT_COLOR = '#00ff00';
 const TINT_COLOR_SECONDARY = '#ff0000';
 
-const Indicator = () => {
+const Indicator = ({ percentage }) => {
 
   const calculateColor = (fillValue) => {
     const percentage = (fillValue / 100).toFixed(2);
     return colorBetween(TINT_COLOR, TINT_COLOR_SECONDARY, percentage, 'hex');
   }
 
-  const fillValue = (400 / 500) * 100;
+  const fillValue = percentage;
   return (
     <View style={styles.container}>
       <AnimatedCircularProgress
@@ -30,13 +30,25 @@ const Indicator = () => {
         lineCap='round'
       >
         {
-          (fillValue) => (
-            <AntDesign
-              name='warning'
-              size={180}
-              color={calculateColor(fillValue)}
-            />
-          )
+          (fillValue) => {
+            if (fillValue > 75) {
+              return (
+                <AntDesign
+                  name='warning'
+                  size={180}
+                  color={calculateColor(fillValue)}
+                />
+              )
+            } else {
+              return (
+                <MaterialIcons
+                  name='face'
+                  size={180}
+                  color={calculateColor(fillValue)}
+                />
+              )
+            }
+          }
         }
       </AnimatedCircularProgress>
     </View>
