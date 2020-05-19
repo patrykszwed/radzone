@@ -2,7 +2,7 @@ import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 
 const details = [
-  { key: "App version", value: "1.0" },
+  { key: "App version", value: "2.0" },
   { key: "Created by", value: "Groupd D" },
   { key: "Data provider", value: "Safecast" },
 ];
