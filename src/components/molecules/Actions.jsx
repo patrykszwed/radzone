@@ -1,14 +1,15 @@
 import React from 'react';
-import { View, StyleSheet, ActionSheetIOS } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { connectActionSheet } from '@expo/react-native-action-sheet';
 
 import ActionButton from '../atoms/ActionButton';
 
 import { AB_MORE, AB_REFRESH } from '../../constants/actionButtonTypes';
 import { CPM, USV, ROENTGEN } from '../../constants/units';
 
-const Actions = ({ convertToUnit }) => {
+const Actions = ({ convertToUnit, showActionSheetWithOptions }) => {
   const showChangeUnitModal = () => {
-    ActionSheetIOS.showActionSheetWithOptions(
+    showActionSheetWithOptions(
       {
         title: 'Select unit:',
         options: ['Cancel', 'Counts per minute', 'Microsieverts an hour', 'Roentgen'],
@@ -48,4 +49,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Actions;
+const ConnectedApp = connectActionSheet(Actions);
+
+export default ConnectedApp;
